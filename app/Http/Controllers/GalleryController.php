@@ -8,10 +8,9 @@ use App\Models\Gallery;
 class GalleryController extends Controller
 {
     public function destroy(Gallery $gallery) {
-        if (Auth()->user()-> role != 'admin') {
             $gallery->delete();
-            return back()->with('message', 'car deleted successfully!');
-        }
+            return back();
+            // return back()->with('message', 'car deleted successfully!');
         
     }
 }

@@ -168,24 +168,22 @@
                 <p class="text-red-500 text-xs mt-1">{{$message}}</p>
                 @enderror
             </div>
-            <div class="galleries">
+            {{-- <div class="galleries">
                 @if(count($car->galleries))
                     @foreach ($car->galleries as $gallery)
-                        <div class="w-full p-1 md:p-2 relative" >
-                            <form method="POST" action="/images/{{$gallery->id}}" class="absolute top-0 right-0" onsubmit="return confirm('are you sure delete this image?')">
+                        <div class="w-full relative" >
+                            <div class=" absolute top-0 right-0">
+                            <form method="POST" action="/galleries/{{$gallery->id}}"  onsubmit="return confirm('are you sure delete this image?')">
                                 @csrf
                                 @method('DELETE')
                                 <button class="text-red-500"><i class=" fa-solid fa-trash"></i>Delete</button>
                             </form> 
+                            </div>
                             <img src="{{asset('storage/'.$gallery -> image)}}" class="w-full  transition duration-300 ease-in-out rounded-t-lg" alt="Louvre"/>
                         </div>
                     @endforeach
-                @else 
-                <img src="{{asset('images/mycar.png')}}" class="max-w-xs  transition duration-300 ease-in-out rounded-t-lg" alt="Louvre"/>
-    
-                
                 @endif
-            </div>
+            </div> --}}
             {{-- <div class="mb-6">
                 <label
                     for="description"
@@ -215,5 +213,21 @@
                 <a href="/" class="text-black ml-4"> Back </a>
             </div>
         </form>
+        <div class="galleries">
+            @if(count($car->galleries))
+                @foreach ($car->galleries as $gallery)
+                    <div class="w-full relative" >
+                        <div class=" absolute top-0 right-0">
+                        <form method="POST" action="/galleries/{{$gallery->id}}"  onsubmit="return confirm('are you sure delete this image?')">
+                            @csrf
+                            @method('DELETE')
+                            <button class="text-red-500"><i class=" fa-solid fa-trash"></i>Delete</button>
+                        </form> 
+                        </div>
+                        <img src="{{asset('storage/'.$gallery -> image)}}" class="w-full  transition duration-300 ease-in-out rounded-t-lg" alt="Louvre"/>
+                    </div>
+                @endforeach
+            @endif
+        </div>
     </x-card>
 </x-layout>

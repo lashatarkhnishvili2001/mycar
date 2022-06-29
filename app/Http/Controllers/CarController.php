@@ -108,7 +108,7 @@ class CarController extends Controller
         $formFields['user_id'] = auth()->id();
         $formFields['image'] = 'default.jpg';
         
-        $newCar = Car::create($formFields);
+        // $newCar = Car::create($formFields);
         $car->update($formFields);
         if($request->hasFile('image')) {
             // $formFields['image'] = $request->file('image')->store('images', 'public');

@@ -4,6 +4,7 @@ use App\Models\Car;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CarController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\GalleryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,7 +58,7 @@ Route::post('/users/authenticate', [UserController::class, 'authenticate']);
 // routes for gallery
 
 //Delete car
-Route::delete('/cars/{car}', [CarController::class, 'destroy'])->middleware('auth');
+Route::delete('/galleries/{gallery}', [GalleryController::class, 'destroy'])->middleware('auth');
 
 
 
